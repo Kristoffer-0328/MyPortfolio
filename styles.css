@@ -677,20 +677,44 @@
         @media (max-width: 768px) {
             .hero {
                 grid-template-columns: 1fr;
+                height: auto;
+                min-height: 100vh;
+                padding-top: 100px; /* Add space for fixed header */
+                margin-bottom: 2rem;
+            }
+
+            .hero-text {
                 text-align: center;
-                padding: 8rem 2rem 4rem;
+                padding: 1rem;
+            }
+
+            .hero-description {
+                margin: 0 auto 2rem auto;
+            }
+
+            .hero-cta {
+                margin-bottom: 2rem;
             }
 
             .hero-visual {
                 order: -1;
-                height: 300px;
+                padding: 1rem;
+                height: auto;
+                margin-bottom: 2rem;
+            }
+
+            section {
+                padding: 4rem 1rem;
+                margin-top: 2rem;
+            }
+
+            #about {
+                margin-top: 4rem;
             }
 
             .section-header {
-                flex-direction: column;
-                align-items: center;
+                margin-bottom: 2rem;
                 text-align: center;
-                gap: 1rem;
             }
 
             .section-number {
