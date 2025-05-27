@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Creative Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cursor"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">Portfolio</div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <div class="subtitle">Developer</div>
+            <h1>Crafting <span class="highlight">Digital</span> Experiences</h1>
+            <p class="hero-description">I'm <span class="highlight-text">John Kristoffer D. Miranda</span>, a passionate developer who loves bringing ideas to life through innovative design and clean code.</p>
+            <a href="#projects" class="hero-cta">
+                View My Work
+                <span>→</span>
+            </a>
+        </div>
+        <div class="hero-visual">
+            <img src="./assets/profile.jpg" alt="John Kristoffer D. Miranda" class="profile-image">
+            <div class="floating-elements">
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2 class="section-title">About Me</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-stats">
+              
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+              
+            </div>
+            <div class="about-text">
+                <p>I'm a <span class="highlight-text">backend developer</span> with a growing passion for building efficient and reliable systems. My journey began as a curious student fascinated by how software works, and now, as a 4th-year college student, I'm gaining hands-on experience through self-driven projects and continuous learning.</p>
+                <p>When I'm not coding, I'm exploring backend technologies, learning about cloud infrastructure, or working on personal projects to sharpen my skills — I've completed three so far. I believe growth comes from consistency, and I'm always looking for ways to improve and push beyond my comfort zone.</p>
+                <p>My goal is to become a well-rounded developer by mastering the fundamentals, contributing to meaningful solutions, and building software that performs well under the hood — clean, scalable, and built to last..</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="fade-in">
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2 class="section-title">Skills</h2>
+        </div>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Frontend Development</h3>
+                <ul class="skill-list">
+                    <li>JavaScript <div class="skill-level" style="--level: 90%"></div></li>
+                    <li>React <div class="skill-level" style="--level: 85%"></div></li>
+                    <li>CSS <div class="skill-level" style="--level: 90%"></div></li>
+                    <li>TypeScript <div class="skill-level" style="--level: 80%"></div></li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Backend Development</h3>
+                <ul class="skill-list">
+                    <li>Node.js <div class="skill-level" style="--level: 80%"></div></li>
+                    <li>Python <div class="skill-level" style="--level: 75%"></div></li>
+                    <li>MySQL <div class="skill-level" style="--level: 65%"></div></li>
+                    <li>Java <div class="skill-level" style="--level: 80%"></div></li>
+                    <li>C# <div class="skill-level" style="--level: 70%"></div></li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Design & Tools</h3>
+                <ul class="skill-list">
+                    <li>Figma <div class="skill-level" style="--level: 85%"></div></li>
+                    <li>Git <div class="skill-level" style="--level: 90%"></div></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="fade-in">
+        <div class="section-header">
+            <span class="section-number">03</span>
+            <h2 class="section-title">Featured Work</h2>
+        </div>
+        <div class="projects-grid">            <div class="project-item">
+                <div class="project-visual mobile-app">
+                    <img src="./assets/Lobby Entered.png" alt="GLink" loading="lazy" width="1200" height="675">
+                </div>
+                <div class="project-info">
+                    <h3>GLink</h3>
+                    <p>GLink is a Team matching app where you can find a team member to work with and make friend a long the way.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Android Studio</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>            <div class="project-item">
+                <div class="project-visual mobile-app">
+                    <img src="./assets/quest info page.png" alt="PeakForm" loading="lazy" width="1200" height="675">
+                </div>
+                <div class="project-info">
+                    <h3>PeakForm</h3>
+                    <p>Peak Form is to give new challenge to the user and give more fun and competitive in exercise this game app will provide all necessary things that user will need to get into shape and become physical fit.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">.Net Maui</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>            <div class="project-item">
+                <div class="project-visual web-app">
+                    <img src="./assets/InventoryDashboard.png" alt="Inventory Management System" loading="lazy" width="1200" height="675">
+                </div>
+                <div class="project-info">
+                    <h3>Inventory Management System</h3>
+                    <p> web-based application designed to streamline and automate the management of inventory operations. It enables real-time tracking of stock levels, monitors product movements, and supports data-driven decision-making through integrated analytics.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">React Framework</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                    </div>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-container fade-in">
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="contact-text">Have a project in mind? Let's discuss how we can bring your ideas to life.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>Email</h4>
+                    <a href="mailto:johnmiranda1728@gmail.com">johnmiranda1728@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <h4>Phone</h4>
+                    <a href="tel:+1234567890">(63+)927-506-7509</a>
+                </div>
+                <div  class="contact-item">
+                    <h4>Location</h4>
+                    <a href="https://maps.app.goo.gl/2Qm4MdniV784SPs7A">Imus City, Cavite</a>
+                </div>
+            </div>            <div class="social-grid">
+                <a href="https://www.facebook.com/share/198VwPYGjn/?mibextid=wwXIfr" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://github.com/Kristoffer-0328" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/retrof.fitks/" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
