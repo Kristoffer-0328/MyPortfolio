@@ -74,16 +74,6 @@
             letter-spacing: 2px;
         }
 
-        .nav-toggle {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--accent);
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
 
         .nav-toggle span {
             width: 25px;
@@ -395,15 +385,22 @@
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            gap: 2rem;
         }
 
         .skill-category {
             background: white;
-            padding: 3rem 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
 
         .skill-category::before {
@@ -412,44 +409,49 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 5px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
 
         .skill-category h3 {
             font-size: 1.5rem;
             color: var(--accent);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(29, 53, 87, 0.1);
+            position: relative;
         }
 
         .skill-list {
             list-style: none;
+            display: grid;
+            gap: 0.5rem;
         }
 
         .skill-list li {
-            padding: 0.5rem 0;
+            padding: 1rem 1.5rem;
             color: var(--gray);
-            border-bottom: 1px solid rgba(29, 53, 87, 0.1);
+            background: rgba(241, 250, 238, 0.5);
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-        }
-
-        .skill-level {
-            width: 60px;
-            height: 6px;
-            background: rgba(255, 107, 53, 0.2);
-            border-radius: 3px;
+            position: relative;
             overflow: hidden;
         }
 
-        .skill-level::after {
-            content: '';
-            display: block;
-            height: 100%;
-            background: var(--primary);
-            width: var(--level, 80%);
-            transition: width 0.5s ease;
+        .skill-list li::before {
+            content: '▹';
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .skill-list li:hover {
+            color: var(--accent);
+            background: rgba(255, 107, 53, 0.1);
+            transform: translateX(5px);
         }
 
         /* Projects Section */
@@ -755,6 +757,20 @@
             .profile-image {
                 width: 280px;
                 height: 280px;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            .skill-category {
+                padding: 1.5rem;
+            }
+
+            .skill-list li {
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
             }
         }
 
