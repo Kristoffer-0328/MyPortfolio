@@ -140,8 +140,8 @@
                     </div>
                 </div>
             </div>            <div class="project-item">
-                <div class="project-visual web-app">
-                    <img src="./assets/InventoryDashboard.png" alt="Inventory Management System" loading="lazy" width="1200" height="675">
+                <div class="project-visual web-app" onclick="openCertModal('IMS-Dashboard')">
+                    <img src="./assets/Screenshot 2025-11-28 024936.png" alt="Inventory Management System" loading="lazy" width="1200" height="675">
                 </div>
                 <div class="project-info">
                     <h3>Inventory Management System</h3>
@@ -180,7 +180,24 @@
                     </div>
                 </div>
             </div>
+            <div class="certification-item" onclick="openCertModal('cyber-security-cert-modal')">
+                <div class="certification-content">
+                    <div class="cert-header">
+                        <div class="cert-thumbnail">
+                            <img src="./assets/BSCS 4.1A - JOHN KRISTOFFER D. MIRANDA_page-0001.jpg" alt="Certificate Thumbnail" class="cert-preview-thumb">
+                        </div>
+                    </div>
+                    <div class="cert-details">
+                        <h3>Cyber Guardians+</h3>
+                        <p class="cert-issuer">STI College Dasmarinas</p>
+                        <p class="cert-date">November 18, 2025</p>
+                        <span class="view-cert">Click to view certificate</span>
+                    </div>
+                </div>
+            </div>
+            
         </div>
+        
     </section>
 
     <!-- Certificate Modal -->
@@ -190,7 +207,14 @@
             <img src="./assets/java_certificate_pages-to-jpg-0001.jpg" alt="Oracle Java Fundamentals Certificate" class="modal-certificate">
         </div>
     </div>
-
+    <div id="cyber-security-cert-modal" class="modal">
+            <span class="close-modal" onclick="closeModal('cyber-security-cert-modal')">&times;</span>
+            <img src="./assets/BSCS 4.1A - JOHN KRISTOFFER D. MIRANDA_page-0001.jpg" alt="Cyber Guardians: Empowering Today's Defenders, Securing Tomorrow's Digital Nation." class="modal-certificate">
+    </div>
+    <div id="IMS-Dashboard" class="modal">
+            <span class="close-modal" onclick="closeModal('IMS-Dashboard')">&times;</span>
+            <img src="./assets/Screenshot 2025-11-28 024936.png" alt="IMS-Dashboard" class="modal-certificate">
+    </div>
     <!-- Contact Section -->
     <section id="contact">
         <div class="contact-container fade-in">
@@ -228,7 +252,7 @@
         <p>&copy; 2025 John Kristoffer D. Miranda. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js"></script>`
     <script>
         function openCertModal(modalId) {
             document.getElementById(modalId).style.display = "flex";
