@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --primary-light: #60a5fa;
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --bg-card-hover: #334155;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 20px 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      width: 90%;
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--text);
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 5% 60px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 1400px;
+      margin: auto;
+      width: 100%;
+    }
+
+    .hero-text {
+      max-width: 800px;
+    }
+
+    .hero-text h1 {
+      font-size: 64px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      animation: fadeInUp 0.8s ease;
+      font-weight: 700;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-text h1 span {
+      color: var(--primary);
+    }
+
+    .hero-text .subtitle {
+      font-size: 24px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      animation: fadeInUp 0.8s ease 0.2s backwards;
+      font-weight: 400;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      line-height: 1.8;
+      animation: fadeInUp 0.8s ease 0.3s backwards;
+      max-width: 600px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      animation: fadeInUp 0.8s ease 0.4s backwards;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 100px 5%;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 48px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header {
+      margin-bottom: 60px;
+    }
+
+    .section-description {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-top: 16px;
+    }
+
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-text h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      background: var(--bg-card-hover);
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .skill-category {
+      background: var(--bg-card);
+      padding: 35px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      background: var(--bg-card-hover);
+    }
+
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .skill-category h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      background: rgba(59, 130, 246, 0.1);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      transition: 0.3s;
+      color: var(--text);
+    }
+
+    .skill-tag:hover {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 35px;
+      margin-top: 40px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      background: var(--bg-card-hover);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .project-content {
+      padding: 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-content h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .project-content p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tech-badge {
+      background: rgba(59, 130, 246, 0.1);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--primary);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .project-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .project-link:hover {
+      color: var(--primary-light);
+      transform: translateX(4px);
+    }
+
+    /* Contact Section */
+    .contact-content {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .contact-content p {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 50px;
+      line-height: 1.8;
+    }
+
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+
+    .contact-item {
+      background: var(--bg-card);
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: 0.3s;
+    }
+
+    .contact-item:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+      background: var(--bg-card-hover);
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin: 0 auto 16px;
+    }
+
+    .contact-item h4 {
+      font-size: 18px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .contact-item a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .contact-item a:hover {
+      color: var(--primary);
+    }
+
+    .contact-item p {
+      color: var(--text-muted);
+      margin: 0;
+      font-size: 15px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 50px 5%;
+      background: rgba(0, 0, 0, 0.3);
+      border-top: 1px solid var(--border);
+      margin-top: 80px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .social-link {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: var(--bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--border);
+      transition: 0.3s;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      border-color: var(--primary);
+    }
+
+    footer p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+      .hero-text h1 {
+        font-size: 48px;
+      }
+
+      .hero-text .subtitle {
+        font-size: 20px;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 73px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 73px);
+        background: rgba(15, 23, 42, 0.98);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+        transition: 0.3s;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-text h1 {
+        font-size: 36px;
+      }
+
+      .hero-text .subtitle {
+        font-size: 18px;
+      }
+
+      .hero-text p {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 36px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .projects-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-methods {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Alex<span>Turner</span></div>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Full-Stack <span>Mobile & Web</span> Developer</h1>
+        <p class="subtitle">Building seamless digital experiences</p>
+        <p>I create high-performance mobile and web applications that users love. Specializing in modern frameworks and cutting-edge technologies to bring ideas to life.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn">View My Work</a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-header">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-description">Passionate developer with expertise in creating innovative solutions</p>
+    </div>
+    <div class="about-content">
+      <div class="about-text">
+        <h3>Hi, I'm Alex Turner</h3>
+        <p>I'm a full-stack developer with over 5 years of experience building mobile and web applications. My passion lies in creating elegant, efficient solutions that solve real-world problems.</p>
+        <p>I've worked with startups and established companies, helping them bring their digital visions to life. From concept to deployment, I focus on delivering high-quality, scalable applications that exceed expectations.</p>
+        <p>When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">5+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">30+</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">15+</span>
+          <span class="stat-label">Technologies</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-header">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <p class="section-description">Technologies and tools I work with on a daily basis</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <div class="skill-icon">📱</div>
+        <h3>Mobile Development</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">React Native</span>
+          <span class="skill-tag">Flutter</span>
+          <span class="skill-tag">iOS</span>
+          <span class="skill-tag">Android</span>
+          <span class="skill-tag">Expo</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-icon">💻</div>
+        <h3>Web Development</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Vue.js</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Tailwind CSS</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-icon">⚙️</div>
+        <h3>Backend & Database</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Express</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">Firebase</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-icon">🛠️</div>
+        <h3>Tools & DevOps</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">GraphQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-header">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-description">A showcase of my recent work and accomplishments</p>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">📱</div>
+        <div class="project-content">
+          <h3>Fitness Tracker App</h3>
+          <p>A comprehensive mobile fitness tracking application with workout plans, nutrition tracking, and progress analytics. Features real-time sync and personalized recommendations.</p>
+          <div class="project-tech">
+            <span class="tech-badge">React Native</span>
+            <span class="tech-badge">Firebase</span>
+            <span class="tech-badge">Redux</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Demo →</a>
+            <a href="#" class="project-link">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">🛒</div>
+        <div class="project-content">
+          <h3>E-Commerce Platform</h3>
+          <p>Full-featured online shopping platform with payment integration, inventory management, and admin dashboard. Handles thousands of transactions daily.</p>
+          <div class="project-tech">
+            <span class="tech-badge">Next.js</span>
+            <span class="tech-badge">Node.js</span>
+            <span class="tech-badge">Stripe</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Demo →</a>
+            <a href="#" class="project-link">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">💬</div>
+        <div class="project-content">
+          <h3>Real-Time Chat App</h3>
+          <p>Modern chat application with real-time messaging, file sharing, and video call capabilities. Built for scalability and performance.</p>
+          <div class="project-tech">
+            <span class="tech-badge">React</span>
+            <span class="tech-badge">Socket.io</span>
+            <span class="tech-badge">WebRTC</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Demo →</a>
+            <a href="#" class="project-link">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">🎨</div>
+        <div class="project-content">
+          <h3>Design System Library</h3>
+          <p>Reusable component library with comprehensive documentation and theming support. Accelerates development across multiple projects.</p>
+          <div class="project-tech">
+            <span class="tech-badge">React</span>
+            <span class="tech-badge">Storybook</span>
+            <span class="tech-badge">TypeScript</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Demo →</a>
+            <a href="#" class="project-link">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">📊</div>
+        <div class="project-content">
+          <h3>Analytics Dashboard</h3>
+          <p>Data visualization dashboard with interactive charts, real-time updates, and export functionality. Processes millions of data points.</p>
+          <div class="project-tech">
+            <span class="tech-badge">Vue.js</span>
+            <span class="tech-badge">D3.js</span>
+            <span class="tech-badge">MongoDB</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Demo →</a>
+            <a href="#" class="project-link">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">🎵</div>
+        <div class="project-content">
+          <h3>Music Streaming App</h3>
+          <p>Cross-platform music streaming application with playlist management, offline playback, and social features. Supports millions of tracks.</p>
+          <div class="project-tech">
+            <span class="tech-badge">Flutter</span>
+            <span class="tech-badge">GraphQL</span>
+            <span class="tech-badge">AWS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Demo →</a>
+            <a href="#" class="project-link">GitHub →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-header">
+      <h2 class="section-title">Let's Work Together</h2>
+      <p class="section-description">Have a project in mind? Let's make it happen</p>
+    </div>
+    <div class="contact-content">
+      <p>I'm currently available for freelance work and full-time opportunities. Whether you have a project idea, need technical consultation, or just want to connect, feel free to reach out!</p>
+      <div class="contact-methods">
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <h4>Email</h4>
+          <a href="mailto:alex@developer.com">alex@developer.com</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <h4>Phone</h4>
+          <a href="tel:+1234567890">+1 (234) 567-890</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <h4>Location</h4>
+          <p>San Francisco, CA</p>
+        </div>
+      </div>
+      <a href="mailto:alex@developer.com" class="btn">Send a Message</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="social-links">
+      <a href="#" class="social-link">GH</a>
+      <a href="#" class="social-link">LI</a>
+      <a href="#" class="social-link">TW</a>
+      <a href="#" class="social-link">DR</a>
+    </div>
+    <p>&copy; 2024 Alex Turner. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

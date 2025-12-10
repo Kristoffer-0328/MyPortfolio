@@ -13,6 +13,7 @@
     <header>
         <div class="header-content">
             <div class="logo">Portfolio</div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☾</button>
             <button class="nav-toggle" id="navToggle">
                 <span></span>
                 <span></span>
@@ -26,7 +27,7 @@
     <section id="home" class="hero">
         <div class="hero-text">
             <div class="subtitle">Developer</div>
-            <h1>Crafting <span class="highlight">Digital</span> Experiences</h1>
+            <h1>Crafting Digital Experiences</h1>
             <p class="hero-description">I'm <span class="highlight-text">John Kristoffer D. Miranda</span>, a passionate developer who loves bringing ideas to life through innovative design and clean code.</p>
             <a href="#projects" class="hero-cta">
                 View My Work
@@ -53,15 +54,15 @@
             <div class="about-stats">
               
                 <div class="stat-item">
-                    <span class="stat-number">3</span>
+                    <span class="stat-number">4</span>
                     <div class="stat-label">Projects Completed</div>
                 </div>
               
             </div>
             <div class="about-text">
-                <p>I'm a <span class="highlight-text">mobile and web developer</span> who creates both websites and mobile apps that work great and are easy to use. I'm completing my Computer Science degree and have successfully built several apps that are helping real users.</p>
-                <p>I focus on building apps that work smoothly on both phones and websites. Every project I create is secure, well-tested, and built using the latest technology to ensure it runs fast and reliably.</p>
-                <p>What makes me different is my ability to build complete solutions - from mobile apps to websites. I take time to understand what you need, then create exactly what your business requires, whether it's a new mobile app, website, or both.</p>
+                <p>I'm a <span class="highlight-text">full-stack developer</span> specializing in mobile and web applications. Currently completing my Computer Science degree, I've built and deployed multiple apps that solve real problems for actual users.</p>
+                <p>I work across the full stack—from Android apps in Java to web platforms with React and Node.js. Every project prioritizes clean code, security, and performance.</p>
+                <p>I don't just code; I partner with you to understand your vision and deliver solutions that work. Whether it's a mobile app, website, or both, I bring the technical skills and problem-solving approach to make it happen.</p>
             </div>
         </div>
     </section>
@@ -109,11 +110,11 @@
     <!-- Projects Section -->
     <section id="projects" class="fade-in">
         <div class="section-header">
-            <span class="section-number">03</span>
+            <span class="section-number">04</span>
             <h2 class="section-title">Featured Work</h2>
         </div>
         <div class="projects-grid">            <div class="project-item">
-                <div class="project-visual mobile-app">
+                <div class="project-visual mobile-app" onclick="openCertModal('GLink') ">
                     <img src="./assets/Lobby Entered.png" alt="GLink" loading="lazy" width="1200" height="675">
                 </div>
                 <div class="project-info">
@@ -127,7 +128,7 @@
                     </div>
                 </div>
             </div>            <div class="project-item">
-                <div class="project-visual mobile-app">
+                <div class="project-visual mobile-app" onclick="openCertModal('PeakForm') ">
                     <img src="./assets/quest info page.png" alt="PeakForm" loading="lazy" width="1200" height="675">
                 </div>
                 <div class="project-info">
@@ -152,6 +153,22 @@
                         <span class="tech-tag">Firebase</span>
                         <span class="tech-tag">HTML</span>
                         <span class="tech-tag">Tailwind CSS</span>
+                    </div>
+                </div>
+            </div>
+            </div>            <div class="project-item">
+                <div class="project-visual web-app" onclick="openCertModal('Booking-System')">
+                    <img src="./assets/StyleCutStudio.png" alt="Booking System" loading="lazy" width="1200" height="675">
+                </div>
+                <div class="project-info">
+                    <h3>Booking System</h3>
+                    <p>StyleCut is a web-based salon booking system that lets customers book appointments online. Users can view services, pick a time, and manage their bookings, while the admin can monitor schedules and update services through a simple dashboard. The system helps the salon organize appointments and makes booking easier for clients.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">React Framework</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                         <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Python Django</span>
                     </div>
                 </div>
             </div>
@@ -199,8 +216,21 @@
         </div>
         
     </section>
+    <div id="GLink" class="modal project-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('GLink')">&times;</span>
+            <img src="./assets/Lobby Entered.png" alt="GLink" class="modal-certificate">
+        </div>
+    </div>
 
     <!-- Certificate Modal -->
+    <div id="PeakForm" class="modal project-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('PeakForm')">&times;</span>
+            <img src="./assets/image.png" alt="PeakForm" class="modal-certificate">
+        </div>
+    </div>
+
     <div id="java-cert-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('java-cert-modal')">&times;</span>
@@ -208,12 +238,22 @@
         </div>
     </div>
     <div id="cyber-security-cert-modal" class="modal">
+        <div class="modal-content">
             <span class="close-modal" onclick="closeModal('cyber-security-cert-modal')">&times;</span>
             <img src="./assets/BSCS 4.1A - JOHN KRISTOFFER D. MIRANDA_page-0001.jpg" alt="Cyber Guardians: Empowering Today's Defenders, Securing Tomorrow's Digital Nation." class="modal-certificate">
+        </div>
     </div>
-    <div id="IMS-Dashboard" class="modal">
+    <div id="IMS-Dashboard" class="modal project-modal">
+        <div class="modal-content">
             <span class="close-modal" onclick="closeModal('IMS-Dashboard')">&times;</span>
             <img src="./assets/Screenshot 2025-11-28 024936.png" alt="IMS-Dashboard" class="modal-certificate">
+        </div>
+    </div>
+    <div id="Booking-System" class="modal project-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('Booking-System')">&times;</span>
+            <img src="./assets/StyleCutStudio.png" alt="Booking System" class="modal-certificate">
+        </div>
     </div>
     <!-- Contact Section -->
     <section id="contact">
