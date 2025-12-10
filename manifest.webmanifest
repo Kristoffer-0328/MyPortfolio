@@ -12,9 +12,9 @@
       "type": "image/png"
     },
     {
-      "src": "assets/profile.jpg",
+      "src": "assets/tofu.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png"
     }
   ]
 }
