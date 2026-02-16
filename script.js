@@ -89,9 +89,17 @@
         // Theme toggle
         const themeToggle = document.getElementById('themeToggle');
         const storedTheme = localStorage.getItem('theme');
-        if (storedTheme === 'light') {
+
+        // Default to light theme
+        if (storedTheme === null) {
             document.body.classList.add('light-theme');
             themeToggle.textContent = '☀';
+        } else if (storedTheme === 'light') {
+            document.body.classList.add('light-theme');
+            themeToggle.textContent = '☀';
+        } else if (storedTheme === 'dark') {
+            document.body.classList.remove('light-theme');
+            themeToggle.textContent = '☾';
         }
 
         themeToggle.addEventListener('click', () => {
